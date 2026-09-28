@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Tuner</AssemblyName>
+    <RootNamespace>Tuner</RootNamespace>
+    <Product>Tuner</Product>
+    <Version>1.0.0</Version>
+    <ApplicationIcon>tuner.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <!-- Only ship the 64-bit VLC engine -->
+    <VlcWindowsX86Enabled>false</VlcWindowsX86Enabled>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />
+    <PackageReference Include="LibVLCSharp" Version="3.*" />
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The interface is the same one the web version uses -->
+    <Content Include="..\web\public\**\*" LinkBase="ui" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Resource Include="tuner.ico" />
+  </ItemGroup>
+
+</Project>

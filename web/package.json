@@ -1,0 +1,12 @@
+{
+  "name": "tuner",
+  "version": "1.2.0",
+  "description": "Web IPTV player for Xtream Codes accounts",
+  "private": true,
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "optionalDependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "@ffprobe-installer/ffprobe": "^2.1.2"
+  }
+}

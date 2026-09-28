@@ -1,0 +1,94 @@
+name: Build Tuner for Windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build
+        run: |
+          New-Item -ItemType Directory -Force ci | Out-Null
+          dotnet publish desktop/Tuner.Desktop.csproj -c Release -r win-x64 --self-contained true -p:DebugType=none -o dist/Tuner -v:minimal 2>&1 | Tee-Object -FilePath ci/build.log
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          "files: " + (Get-ChildItem dist/Tuner -Recurse -File | Measure-Object).Count | Tee-Object -FilePath ci/build.log -Append
+          "size MB: " + [math]::Round(((Get-ChildItem dist/Tuner -Recurse -File | Measure-Object Length -Sum).Sum / 1MB), 1) | Tee-Object -FilePath ci/build.log -Append
+          Get-ChildItem dist/Tuner | Select-Object Name, Length | Format-Table | Out-String | Tee-Object -FilePath ci/build.log -Append
+          if (-not (Test-Path dist/Tuner/libvlc/win-x64/libvlc.dll)) { "VLC engine missing from output" | Tee-Object -FilePath ci/build.log -Append; exit 1 }
+          if (-not (Test-Path dist/Tuner/ui/index.html)) { "interface missing from output" | Tee-Object -FilePath ci/build.log -Append; exit 1 }
+
+      - name: Start fake IPTV provider
+        run: |
+          Start-Process -FilePath node -ArgumentList 'tests/mock/panel.js' -RedirectStandardOutput ci/mock.log -RedirectStandardError ci/mock.err
+          Start-Sleep -Seconds 2
+          (Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:9100/player_api.php?username=alice&password=s3cret').StatusCode
+
+      - name: Self-test on Windows
+        run: |
+          $out = (Resolve-Path ci).Path
+          $p = Start-Process -FilePath dist/Tuner/Tuner.exe -ArgumentList '--selftest','--out',$out -PassThru
+          if (-not $p.WaitForExit(260000)) { Stop-Process -Id $p.Id -Force; "the self-test did not finish" | Out-File ci/timeout.txt }
+          Copy-Item "$env:LOCALAPPDATA\Tuner\tuner.log" ci/ -ErrorAction SilentlyContinue
+          Get-ChildItem ci | Select-Object Name, Length | Format-Table
+          if (Test-Path ci/result.json) { Get-Content ci/result.json }
+
+      - name: Share results with the developer
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $tmp = Join-Path $env:RUNNER_TEMP 'results'
+          New-Item -ItemType Directory -Force $tmp | Out-Null
+          if (Test-Path ci) { Copy-Item ci/* $tmp -Recurse -ErrorAction SilentlyContinue }
+          Set-Location $tmp
+          "$env:GITHUB_SHA" | Out-File -Encoding ascii commit.txt
+          git init -q
+          git checkout -q -b ci-results
+          git config user.name "tuner-ci"
+          git config user.email "tuner-ci@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Results for $env:GITHUB_SHA"
+          git push -q -f "https://x-access-token:$env:GH_TOKEN@github.com/$env:GITHUB_REPOSITORY.git" ci-results
+
+      - name: Check self-test passed
+        run: |
+          if (-not (Test-Path ci/result.json)) { "no result.json"; exit 1 }
+          $r = Get-Content ci/result.json | ConvertFrom-Json
+          $r.steps
+          if (-not $r.pass) { exit 1 }
+
+      - name: Package
+        run: |
+          Copy-Item desktop/README-Windows.txt dist/Tuner/README.txt
+          Compress-Archive -Path dist/Tuner -DestinationPath Tuner-Windows.zip
+
+      - name: Publish download
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: Tuner for Windows (build ${{ github.run_number }})
+          body: |
+            Download **Tuner-Windows.zip**, unzip it anywhere, and double-click **Tuner.exe**.
+            Built and tested automatically on Windows from commit ${{ github.sha }}.
+          files: Tuner-Windows.zip
+          make_latest: true

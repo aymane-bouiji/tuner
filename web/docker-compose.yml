@@ -1,0 +1,9 @@
+services:
+  tuner:
+    build: .
+    container_name: tuner
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    # environment:
+    #   IPTV_UA: "okhttp/4.9.0"   # only if your provider rejects the default player identity
