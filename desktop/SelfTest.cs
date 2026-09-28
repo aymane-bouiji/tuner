@@ -71,7 +71,7 @@ namespace Tuner
             try
             {
                 w.WindowState = WindowState.Normal;
-                w.Left = 0; w.Top = 0; w.Width = 1180; w.Height = 760;
+                w.Left = 0; w.Top = 0; w.Width = 1010; w.Height = 715;
                 w.Activate();
 
                 Check("interface loaded", await Until(() => w.WebReady, 40000));
@@ -86,13 +86,15 @@ namespace Tuner
                 bool listed = await UntilJs("document.querySelectorAll('#chanList .ch').length > 0", 40000);
                 Check("signs in and lists channels, talking to the provider directly", listed,
                     await w.Js("document.querySelector('#loginErr').hidden ? document.querySelector('#liveCount').textContent : document.querySelector('#loginErr').textContent"));
+                if (!listed) { Shot("2-sign-in-failed.png"); Write(); await Task.Delay(300); Environment.Exit(0); return; }
+                Shot("2-channels.png");
 
                 // --- live channel (MPEG-TS) shown inside the page ---
                 await w.Js("document.querySelector('#chanList .ch[data-id=\"2\"]').click(); 1");
                 Check("live channel starts (MPEG-TS)", await Until(() => p.Started, 30000), p.Debug());
                 await Task.Delay(2500);
                 Check("picture sits in the page's video area", p.Mode == PlayerMode.Inline && p.VideoVisible, p.Debug());
-                Shot("2-live-in-page.png");
+                Shot("3-live-in-page.png");
 
                 // --- HLS channel with subtitle tracks, then full window ---
                 await w.Js("document.querySelector('#chanList .ch[data-id=\"4\"]').click(); 1");
@@ -103,7 +105,7 @@ namespace Tuner
                 p.EnterFull();
                 await Task.Delay(1500);
                 Check("live goes full-window", p.Mode == PlayerMode.Full && p.VideoVisible, p.Debug());
-                Shot("3-live-full-window.png");
+                Shot("4-live-full-window.png");
                 p.Exit();
                 await Task.Delay(800);
                 Check("Esc returns live to the page", p.Mode == PlayerMode.Inline, p.Debug());
@@ -133,12 +135,12 @@ namespace Tuner
                     string.Join(", ", p.SubTracks().Where(t => t.Active).Select(t => t.Name)));
                 p.Controls.ShowBarsNow();
                 await Task.Delay(400);
-                Shot("4-movie-subtitles.png");
+                Shot("5-movie-subtitles.png");
 
                 p.Exit();
                 Check("closing the movie offers Resume", await UntilJs("!!document.querySelector('[data-act=\"resume\"]')", 10000),
                     await w.Js("(document.querySelector('[data-act=\"resume\"]') || {}).textContent || 'no resume button'"));
-                Shot("5-after-closing.png");
+                Shot("6-after-closing.png");
             }
             catch (Exception ex)
             {

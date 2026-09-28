@@ -37,20 +37,23 @@ jobs:
           if (-not (Test-Path dist/Tuner/libvlc/win-x64/libvlc.dll)) { "VLC engine missing from output" | Tee-Object -FilePath ci/build.log -Append; exit 1 }
           if (-not (Test-Path dist/Tuner/ui/index.html)) { "interface missing from output" | Tee-Object -FilePath ci/build.log -Append; exit 1 }
 
-      - name: Start fake IPTV provider
-        run: |
-          Start-Process -FilePath node -ArgumentList 'tests/mock/panel.js' -RedirectStandardOutput ci/mock.log -RedirectStandardError ci/mock.err
-          Start-Sleep -Seconds 2
-          (Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:9100/player_api.php?username=alice&password=s3cret').StatusCode
-
       - name: Self-test on Windows
         run: |
+          # The fake provider has to be started in this same step: Windows runners stop
+          # background programs when the step that started them ends.
+          $mock = Start-Process -FilePath node -ArgumentList 'tests/mock/panel.js' -RedirectStandardOutput ci/mock.log -RedirectStandardError ci/mock.err -PassThru
+          $ok = $false
+          for ($i = 0; $i -lt 20 -and -not $ok; $i++) {
+            try { (Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:9100/player_api.php?username=alice&password=s3cret').StatusCode | Out-Null; $ok = $true } catch { Start-Sleep -Milliseconds 500 }
+          }
+          "fake provider ready: $ok"
           $out = (Resolve-Path ci).Path
           $p = Start-Process -FilePath dist/Tuner/Tuner.exe -ArgumentList '--selftest','--out',$out -PassThru
           if (-not $p.WaitForExit(260000)) { Stop-Process -Id $p.Id -Force; "the self-test did not finish" | Out-File ci/timeout.txt }
           Copy-Item "$env:LOCALAPPDATA\Tuner\selftest\tuner.log" ci/ -ErrorAction SilentlyContinue
           Get-ChildItem ci | Select-Object Name, Length | Format-Table
           if (Test-Path ci/result.json) { Get-Content ci/result.json }
+          Stop-Process -Id $mock.Id -Force -ErrorAction SilentlyContinue
 
       - name: Share results with the developer
         if: always()
