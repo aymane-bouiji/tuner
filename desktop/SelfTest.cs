@@ -137,6 +137,9 @@ namespace Tuner
                 await Task.Delay(400);
                 Shot("5-movie-subtitles.png");
 
+                // Go back to 0:30 so the position counts as "part-way through" (not near the end).
+                p.SeekTo(30000);
+                await Task.Delay(2500);
                 p.Exit();
                 Check("closing the movie offers Resume", await UntilJs("!!document.querySelector('[data-act=\"resume\"]')", 10000),
                     await w.Js("(document.querySelector('[data-act=\"resume\"]') || {}).textContent || 'no resume button'"));
