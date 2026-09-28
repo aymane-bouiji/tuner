@@ -48,7 +48,7 @@ jobs:
           $out = (Resolve-Path ci).Path
           $p = Start-Process -FilePath dist/Tuner/Tuner.exe -ArgumentList '--selftest','--out',$out -PassThru
           if (-not $p.WaitForExit(260000)) { Stop-Process -Id $p.Id -Force; "the self-test did not finish" | Out-File ci/timeout.txt }
-          Copy-Item "$env:LOCALAPPDATA\Tuner\tuner.log" ci/ -ErrorAction SilentlyContinue
+          Copy-Item "$env:LOCALAPPDATA\Tuner\selftest\tuner.log" ci/ -ErrorAction SilentlyContinue
           Get-ChildItem ci | Select-Object Name, Length | Format-Table
           if (Test-Path ci/result.json) { Get-Content ci/result.json }
 

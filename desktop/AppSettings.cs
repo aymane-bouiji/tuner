@@ -22,8 +22,11 @@ namespace Tuner
         public double WindowHeight { get; set; } = 840;
         public bool Maximized { get; set; }
 
+        /// <summary>%LOCALAPPDATA%\Tuner — the self-test uses its own sub-folder so it never touches your real sign-in.</summary>
         public static string DataDir =>
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Tuner");
+            App.HasArg("--selftest")
+                ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Tuner", "selftest")
+                : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Tuner");
 
         static string FilePath => Path.Combine(DataDir, "settings.json");
 
