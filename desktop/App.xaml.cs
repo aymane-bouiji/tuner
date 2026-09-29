@@ -27,6 +27,16 @@ namespace Tuner
 
         public static bool HasArg(string name) => Array.Exists(Args, a => string.Equals(a, name, StringComparison.OrdinalIgnoreCase));
 
+        /// <summary>Removes usernames and passwords from anything written to the log (including VLC's own messages).</summary>
+        public static string Redact(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return text ?? "";
+            text = System.Text.RegularExpressions.Regex.Replace(text, @"/(live|movie|series|timeshift)/[^/\s']+/[^/\s']+/", "/$1/***/***/");
+            text = System.Text.RegularExpressions.Regex.Replace(text, @"(username|password)=[^&\s']*", "$1=***");
+            text = System.Text.RegularExpressions.Regex.Replace(text, @"://[^/\s:@']+:[^/\s@']+@", "://***:***@");
+            return text;
+        }
+
         public static void Log(object o)
         {
             try
@@ -37,7 +47,7 @@ namespace Tuner
                     var file = Path.Combine(AppSettings.DataDir, "tuner.log");
                     var info = new FileInfo(file);
                     if (info.Exists && info.Length > 2_000_000) info.Delete();
-                    File.AppendAllText(file, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "  " + o + Environment.NewLine);
+                    File.AppendAllText(file, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "  " + Redact(o?.ToString()) + Environment.NewLine);
                 }
             }
             catch { }

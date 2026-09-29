@@ -58,6 +58,7 @@ svg{display:block}
 .field .hint{font-size:12px;color:var(--dim)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .form .btn{height:46px;justify-content:center}
+.note{display:flex;align-items:center;gap:10px;background:var(--raised);border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:10px 12px;font-size:13px}
 .err{background:rgba(255,84,104,.1);border:1px solid rgba(255,84,104,.35);color:#FFB3BD;border-radius:10px;padding:10px 12px;font-size:13px}
 .login-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--dim);font-size:13px;flex-wrap:wrap}
 .link{color:var(--accent);font-weight:600}
@@ -340,6 +341,7 @@ hr.cc-hr{border:0;border-top:1px solid var(--line);margin:6px 4px}
         <div class="field"><label for="fUser">Username</label><input id="fUser" name="username" autocomplete="username" autocapitalize="off" spellcheck="false" required></div>
         <div class="field"><label for="fPass">Password</label><input id="fPass" name="password" type="password" autocomplete="current-password" required></div>
       </div>
+      <div id="loginNote" class="note" hidden><span class="spin sm"></span><span id="loginNoteText"></span></div>
       <div id="loginErr" class="err" hidden></div>
       <button id="loginBtn" class="btn primary" type="submit">Sign in</button>
     </form>
@@ -541,10 +543,14 @@ function apiUrl(params) {
   for (const [k, v] of Object.entries(params)) u.searchParams.set(k, v);
   return px(u.href);
 }
-async function api(params = {}) {
+async function api(params = {}, { timeout = 0 } = {}) {
   let r;
-  try { r = await fetch(apiUrl(params)); }
-  catch { throw new Error(NATIVE ? 'Could not reach your IPTV server. Check your internet connection and the server address.' : 'Tuner\'s local server isn\'t responding. Is "node server.js" still running?'); }
+  const ac = timeout ? new AbortController() : null;
+  const timer = ac ? setTimeout(() => ac.abort(), timeout) : 0;
+  try { r = await fetch(apiUrl(params), ac ? { signal: ac.signal } : undefined); }
+  catch (e) {
+    if (e && e.name === 'AbortError') throw new Error(`Your provider didn't answer within ${Math.round(timeout / 1000)} seconds. It may be busy or down right now. Try again in a moment.`); throw new Error(NATIVE ? 'Could not reach your IPTV server. Check your internet connection and the server address.' : 'Tuner\'s local server isn\'t responding. Is "node server.js" still running?'); }
+  finally { clearTimeout(timer); }
   const text = await r.text();
   if (r.status === 502) throw new Error(text || 'Could not reach the IPTV server.');
   if (r.status === 401 || r.status === 403) throw new Error('The server refused this login (wrong username or password, or the account is blocked).');
@@ -1647,7 +1653,7 @@ document.addEventListener('click', (e) => {
 
 async function signIn(acct, { save = true } = {}) {
   S.acct = acct;
-  const r = await api({});
+  const r = await api({}, { timeout: 30000 });
   if (!r || !r.user_info) throw new Error('This doesn\'t look like an Xtream Codes server. Check the URL — it\'s usually http://host:port.');
   if (Number(r.user_info.auth) !== 1) throw new Error('Wrong username or password.');
   const st = String(r.user_info.status || 'Active').toLowerCase();
@@ -1678,7 +1684,8 @@ function logout() {
   $('#nowPanel').innerHTML = '';
   history.replaceState(null, '', location.pathname);
 }
-function showLoginError(msg) { const el = $('#loginErr'); el.textContent = msg; el.hidden = !msg; }
+function showLoginError(msg) { const el = $('#loginErr'); el.textContent = msg; el.hidden = !msg; if (msg) showLoginNote(''); }
+function showLoginNote(msg) { $('#loginNoteText').textContent = msg; $('#loginNote').hidden = !msg; }
 
 $('#fServer').addEventListener('input', (e) => {
   try {
@@ -1689,9 +1696,10 @@ $('#fServer').addEventListener('input', (e) => {
 $('#loginForm').addEventListener('submit', async (e) => {
   e.preventDefault(); showLoginError('');
   const btn = $('#loginBtn'); btn.disabled = true; btn.textContent = 'Signing in…';
+  showLoginNote('Contacting your provider…');
   try { await signIn(parseAccount($('#fServer').value, $('#fUser').value, $('#fPass').value)); }
   catch (err) { showLoginError(err.message); }
-  finally { btn.disabled = false; btn.textContent = 'Sign in'; }
+  finally { btn.disabled = false; btn.textContent = 'Sign in'; showLoginNote(''); }
 });
 $('#demoBtn').addEventListener('click', async () => {
   showLoginError('');
@@ -1740,6 +1748,8 @@ function closeTheaterNative() {
   if (S.liveWasOn && S.current) { S.liveWasOn = false; playChannel(S.current.id); }
 }
 if (NATIVE) {
+  window.addEventListener('error', (e) => send({ cmd: 'log', text: 'page error: ' + (e.message || e) + ' @' + (e.lineno || '?') }));
+  window.addEventListener('unhandledrejection', (e) => send({ cmd: 'log', text: 'page promise: ' + ((e.reason && e.reason.message) || e.reason) }));
   bridge.addEventListener('message', (e) => {
     const m = e.data; if (!m || !m.ev) return;
     switch (m.ev) {
@@ -1772,8 +1782,14 @@ if (NATIVE) {
   }
   const saved = store.get('account', null);
   if (saved) {
-    try { await signIn(saved, { save: false }); return; }
-    catch (err) { $('#fServer').value = saved.server; $('#fUser').value = saved.user; showLoginError(err.message); }
+    // Show the sign-in screen straight away with what's happening, instead of an empty window.
+    $('#fServer').value = saved.server; $('#fUser').value = saved.user; $('#fPass').value = saved.pass || '';
+    $('#login').hidden = false;
+    let host = saved.server; try { host = new URL(saved.server).host; } catch {}
+    showLoginNote(`Signing in to ${host}…`);
+    try { await signIn(saved, { save: false }); showLoginNote(''); return; }
+    catch (err) { showLoginError(err.message); }
+    return;
   }
   $('#login').hidden = false;
 })();

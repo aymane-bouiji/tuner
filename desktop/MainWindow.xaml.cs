@@ -126,6 +126,20 @@ namespace Tuner
                     Dispatcher.BeginInvoke(new Action(() => { Player?.Stop(); core.Reload(); }));
             };
             core.Navigate("http://tuner.app/index.html");
+
+            var watchdog = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(20) };
+            int attempts = 0;
+            watchdog.Tick += (s, a) =>
+            {
+                if (WebReady) { watchdog.Stop(); return; }
+                attempts++;
+                App.Log("interface not ready after " + (attempts * 20) + "s");
+                if (attempts == 1) { core.Reload(); return; }
+                watchdog.Stop();
+                ShowMessage("Tuner's screen didn't load",
+                    "Close Tuner and open it again. If this keeps happening, send the file %LOCALAPPDATA%\\Tuner\\tuner.log to Claude.", null, null);
+            };
+            watchdog.Start();
         }
 
         async void OnResourceRequested(object sender, CoreWebView2WebResourceRequestedEventArgs e)
@@ -135,6 +149,8 @@ namespace Tuner
             if (uri.Host == "tuner.app" || (uri.Scheme != "http" && uri.Scheme != "https")) return;
 
             var deferral = e.GetDeferral();
+            var started = DateTime.UtcNow;
+            string shown = RedactQuery(uri);
             try
             {
                 using var req = new HttpRequestMessage(new HttpMethod(e.Request.Method), uri);
@@ -146,15 +162,28 @@ namespace Tuner
                 var headers = "Content-Type: " + type + "\nAccess-Control-Allow-Origin: *\nCache-Control: no-store";
                 e.Response = Web.CoreWebView2.Environment.CreateWebResourceResponse(
                     new MemoryStream(bytes), (int)resp.StatusCode, resp.ReasonPhrase ?? "OK", headers);
+                var took = (DateTime.UtcNow - started).TotalSeconds;
+                if (!resp.IsSuccessStatusCode || took > 8)
+                    App.Log($"provider: {(int)resp.StatusCode} in {took:0.0}s, {bytes.Length / 1024} KB  {shown}");
             }
             catch (Exception ex)
             {
                 var reason = ex is TaskCanceledException ? "the server took too long to answer" : (ex.InnerException?.Message ?? ex.Message);
+                if (ex.InnerException is System.Net.Sockets.SocketException se &&
+                    (se.SocketErrorCode == System.Net.Sockets.SocketError.HostNotFound || se.SocketErrorCode == System.Net.Sockets.SocketError.NoData || se.SocketErrorCode == System.Net.Sockets.SocketError.TryAgain))
+                    reason = "your provider's address " + uri.Host + " can't be found right now. Their server may be down, or your internet provider may be blocking it";
+                App.Log($"provider: failed after {(DateTime.UtcNow - started).TotalSeconds:0.0}s ({reason})  {shown}");
                 var body = System.Text.Encoding.UTF8.GetBytes("Could not reach the server (" + reason + ")");
                 e.Response = Web.CoreWebView2.Environment.CreateWebResourceResponse(
                     new MemoryStream(body), 502, "Bad Gateway", "Content-Type: text/plain; charset=utf-8\nAccess-Control-Allow-Origin: *");
             }
             finally { deferral.Complete(); }
+        }
+
+        static string RedactQuery(Uri u)
+        {
+            var q = System.Text.RegularExpressions.Regex.Replace(u.Query, @"(username|password)=[^&]*", "$1=***");
+            return u.Host + (u.IsDefaultPort ? "" : ":" + u.Port) + u.AbsolutePath + q;
         }
 
         // ---------- page <-> app messages ----------
@@ -190,6 +219,7 @@ namespace Tuner
             switch (cmd)
             {
                 case "ready": WebReady = true; return;
+                case "log": App.Log(Str(m, "text")); return;
                 case "copy": try { Clipboard.SetText(Str(m, "text") ?? ""); } catch { } return;
                 case "open": OpenExternal(Str(m, "url")); return;
             }
