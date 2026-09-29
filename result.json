@@ -1,0 +1,33 @@
+{
+  "liveSubtitleTracks": [
+    "French \u00B7 subs Fran\u00E7ais",
+    "subs English"
+  ],
+  "movieSubtitleTracks": [
+    "English",
+    "French \u00B7 Fran\u00E7ais (ASS)"
+  ],
+  "movieAudioTracks": [
+    "English 5.1",
+    "French"
+  ],
+  "timeAfterSeekMs": 62267,
+  "pass": true,
+  "steps": [
+    "PASS  interface loaded",
+    "PASS  interface runs in app mode  \u2014  true",
+    "PASS  signs in and lists channels, talking to the provider directly  \u2014  \u00223,004\u0022",
+    "PASS  live channel starts (MPEG-TS)  \u2014  mode=Inline started=True failed=False state=Playing url#1/2 visible=True err=",
+    "PASS  picture sits in the page\u0027s video area  \u2014  mode=Inline started=True failed=False state=Playing url#1/2 visible=True err=",
+    "PASS  second live channel starts (HLS)  \u2014  mode=Inline started=True failed=False state=Playing url#2/2 visible=True err=",
+    "PASS  live goes full-window  \u2014  mode=Full started=True failed=False state=Playing url#2/2 visible=True err=",
+    "PASS  Esc returns live to the page  \u2014  mode=Inline started=True failed=False state=Playing url#2/2 visible=True err=",
+    "PASS  movies list",
+    "PASS  movie (MKV \u002B AC-3) plays  \u2014  mode=Full started=True failed=False state=Playing url#1/1 visible=True err=",
+    "PASS  built-in subtitle tracks found  \u2014  English, French \u00B7 Fran\u00E7ais (ASS)",
+    "PASS  audio tracks found  \u2014  English 5.1, French",
+    "PASS  seeking works  \u2014  62267",
+    "PASS  French subtitles selected  \u2014  French \u00B7 Fran\u00E7ais (ASS)",
+    "PASS  closing the movie offers Resume  \u2014  \u0022 Resume from 0:31\u0022"
+  ]
+}

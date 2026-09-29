@@ -1,0 +1,424 @@
+2026-09-29 00:17:05  Tuner starting, version 1.0.0.0
+2026-09-29 00:17:05  vlc: mmdevice: cannot get device identifier (error 0x80070490)
+2026-09-29 00:17:05  vlc: mmdevice: cannot get default device (error 0x80070490)
+2026-09-29 00:17:09  selftest PASS  interface loaded
+2026-09-29 00:17:10  selftest PASS  interface runs in app mode  —  true
+2026-09-29 00:17:11  selftest PASS  signs in and lists channels, talking to the provider directly  —  "3,004"
+2026-09-29 00:17:11  live open #1: http://127.0.0.1:9100/live/***/***/2.ts
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  selftest PASS  live channel starts (MPEG-TS)  —  mode=Inline started=True failed=False state=Playing url#1/2 visible=True err=
+2026-09-29 00:17:11  vlc: d3d11va: Could not Query ID3D11VideoDevice Interface. (hr=0x80004002)
+2026-09-29 00:17:11  vlc: d3d11va: CreateVideoService failed
+2026-09-29 00:17:11  vlc: direct3d11: SetThumbNailClip failed: 0x800706F4
+2026-09-29 00:17:11  vlc: direct3d11: SetThumbNailClip failed: 0x800706F4
+2026-09-29 00:17:11  vlc: main: buffer deadlock prevented
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:11  vlc: main: module not functional
+2026-09-29 00:17:11  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: failed to create audio output
+2026-09-29 00:17:12  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  vlc: main: failed to create audio output
+2026-09-29 00:17:13  vlc: main: module not functional
+2026-09-29 00:17:13  selftest PASS  picture sits in the page's video area  —  mode=Inline started=True failed=False state=Playing url#1/2 visible=True err=
+2026-09-29 00:17:14  live open #1: http://127.0.0.1:9100/live/***/***/4.ts
+2026-09-29 00:17:14  vlc: access: HTTP 404 error
+2026-09-29 00:17:14  vlc: http: error: HTTP/1.1 404 Not Found
+2026-09-29 00:17:14  vlc: main: Your input can't be opened
+2026-09-29 00:17:14  vlc: main: VLC is unable to open the MRL 'http://127.0.0.1:9100/live/***/***/4.ts'. Check the log for details.
+2026-09-29 00:17:14  trying the next stream address
+2026-09-29 00:17:14  live open #2: http://127.0.0.1:9100/live/***/***/4.m3u8
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: failed to create audio output
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  vlc: main: module not functional
+2026-09-29 00:17:14  selftest PASS  second live channel starts (HLS)  —  mode=Inline started=True failed=False state=Playing url#2/2 visible=True err=
+2026-09-29 00:17:18  selftest PASS  live goes full-window  —  mode=Full started=True failed=False state=Playing url#2/2 visible=True err=
+2026-09-29 00:17:19  selftest PASS  Esc returns live to the page  —  mode=Inline started=True failed=False state=Playing url#2/2 visible=True err=
+2026-09-29 00:17:19  selftest PASS  movies list
+2026-09-29 00:17:19  vod open #1: http://127.0.0.1:9100/movie/***/***/5001.mkv
+2026-09-29 00:17:20  selftest PASS  movie (MKV + AC-3) plays  —  mode=Full started=True failed=False state=Playing url#1/1 visible=True err=
+2026-09-29 00:17:22  selftest PASS  built-in subtitle tracks found  —  English, French · Français (ASS)
+2026-09-29 00:17:22  selftest PASS  audio tracks found  —  English 5.1, French
+2026-09-29 00:17:26  selftest PASS  seeking works  —  62267
+2026-09-29 00:17:26  selftest PASS  French subtitles selected  —  French · Français (ASS)
+2026-09-29 00:17:29  live open #1: http://127.0.0.1:9100/live/***/***/4.ts
+2026-09-29 00:17:29  selftest PASS  closing the movie offers Resume  —  " Resume from 0:31"
+2026-09-29 00:17:29  trying the next stream address
+2026-09-29 00:17:29  live open #2: http://127.0.0.1:9100/live/***/***/4.m3u8
